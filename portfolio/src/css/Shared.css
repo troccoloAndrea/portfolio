@@ -1,0 +1,15 @@
+.navbar {
+    padding-top:20px;
+    padding-bottom:20px;
+}
+
+.footer{
+    margin-top:24px;
+    width: 100%;
+    padding-top:40px;
+    padding-bottom:40px;
+    background-color: #2E2752;
+    overflow-x: hidden;
+    overflow-y:hidden;
+    color:#fff !important;
+}
