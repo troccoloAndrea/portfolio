@@ -39,7 +39,7 @@ const HomePortfolio = () => {
 
 
     return (
-        <section className='container portfolio'>
+        <section id="portfolio" className='container portfolio'>
             <h3><img src={avatar4} height={80} />My Portfolio</h3>
             <p>Questi sono i progetti che ho realizzato a scuola, corsi di formazione e just for fun!</p>
             <div className='home-portfolio-box'>

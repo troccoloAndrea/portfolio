@@ -38,7 +38,7 @@ const ContactForm = () => {
 
     return (
         <>
-            <p>Inviami un messaggio con questa form!</p>
+            <p>Mettiamoci in contatto! Inviami un messaggio con questa form!</p>
             <form onSubmit={handleSubmit(sendEmail)}>
                 <div className="form-group mb-4">
                     <input className={`form-control ${errors.email && 'is-invalid'}`} {...register("name", { required: true })} placeholder="name" name='name' />
@@ -52,7 +52,7 @@ const ContactForm = () => {
                     <textarea rows={4} className={`form-control ${errors.message && 'is-invalid'}`} {...register("message", { required: true })} placeholder="Lascia qui il tuo messaggio..." name='message' />
                     {errors.message && <span className='invalid-feedback'>Il messaggio è obbligatorio!</span>}
                 </div>
-                {IsSent ? <><button type="submit" className='btn btn-fill-success'><FaCheck /> Inviato!</button>
+                {IsSent ? <><button className='btn btn-fill-success'><FaCheck /> Inviato!</button>
                 <p className="success-text">Grazie! Ti risponderò il prima possibile!</p></> : <button type="submit" className='btn btn-fill'><IoIosSend /> Invia</button> }
                 
                 

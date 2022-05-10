@@ -22,7 +22,7 @@ type Props = {}
 const Home = (props: Props) => {
     return (
         <main>
-            <div className="hero">
+            <div id="home" className="hero">
                 <div className="hero-content">
                     <h1>Front-end developer</h1>
                     <h3>Andrea Troccolo</h3>
@@ -30,17 +30,18 @@ const Home = (props: Props) => {
                         <br />Ho 20 anni e sono appassionato al mondo dell'informatica, della programmazione e del UI/UX design.
                         <br />Attualmente sono iscritto alla facoltà di Informatica presso l'Università degli studi di Milano.
                     </p>
-                    <button className='btn btn-fill'>Vedi Portfolio</button>
-                    <button className='btn btn-empty'>Contatti</button>
+                    <a href='#portfolio' className='btn btn-fill'>Vedi Portfolio</a>
+                    <a href='#contact' className='btn btn-empty'>Contatti</a>
                     <img src={avatar1} className="avatar" id="avatar-1" />
                 </div>
-                <BsChevronDoubleDown className='arrow-down' />
+                <a href='#skills'><BsChevronDoubleDown className='arrow-down' /></a>
             </div>
-            <section className='container'>
+            <section id="skills" className='container'>
                 <div className="row">
                     <div className="col-md-4 section-info">
                         <div className="section-info-content">
                             <h3>My Tech Stack</h3>
+                            <p>Le mie tecnologie preferite!</p>
                             <img src={avatar2} className="avatar" id="avatar-2" />
                         </div>
                     </div>
@@ -60,10 +61,10 @@ const Home = (props: Props) => {
                     </div>
                 </div>
             </section>
-
+            
             <HomePortfolio />
 
-            <section className='container'>
+            <section id="contact" className='container'>
                 <div className="row">
                     <div className="col-md-4 section-info">
                         <div className="section-info-content">
