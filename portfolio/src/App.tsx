@@ -1,20 +1,31 @@
 import React from 'react';
 import logo from './logo.svg';
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+
+
 import Navbar from './shared/Navbar';
 import Footer from './shared/Footer';
 import Home from './pages/Home';
+import Portfolio from './pages/Portfolio';
+
+
 
 function App() {
   return (
+    <Router>
     <div className='app-wrapper'>
       <div className='app'>
         <Navbar />
-        <Home />
+        <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/portfolio/:id" element={<Portfolio/>} />
+          </Routes>  
+
         <Footer />
-        
       </div>
       
     </div>
+    </Router>
   );
 }
 

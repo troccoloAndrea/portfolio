@@ -5,7 +5,7 @@
 .my-navbar-white {
     padding-top: 20px;
     padding-bottom: 20px;
-    background-color: #fff;
+    background-color: transparent;
 }
 
 .my-navbar-dark {
@@ -151,3 +151,4 @@
 .icon-style:hover {
     color: #4c4d57;
 }
+

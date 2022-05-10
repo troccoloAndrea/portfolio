@@ -213,6 +213,8 @@ section h3 {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  -webkit-box-shadow: 0px 11px 34px -10px rgba(76,77,87,0.67); 
+  box-shadow: 0px 11px 34px -10px rgba(76,77,87,0.67);
 }
 
 .portfolio-single .title{
@@ -253,4 +255,93 @@ section h3 {
 .inner:hover{
   background-color: rgba(0,0,0,0.50);
   cursor:pointer
+}
+
+.project-hero{
+  padding-top:110px;
+}
+.hero-image{
+  width: 100%;
+  margin-bottom:40px;
+  -webkit-box-shadow: 0px 11px 31px 0px rgba(76,77,87,0.67); 
+box-shadow: 0px 11px 31px 0px rgba(76,77,87,0.67);
+border-radius: 8px;
+}
+.project-hero h1{
+  font-weight: 900;
+  letter-spacing: -0.5px;
+  font-size: 3rem;
+}
+.project p{
+  line-height: 36px;
+  color: #4c4d57;
+}
+
+.project .category{
+  float: right;
+  margin-top: -50px;
+  background-color: #3e48e9;
+  background-image: linear-gradient(300deg, #3e48e9 0%, #1c2aaf 100%);
+  border-color: #3e48e9;
+  color: #fff;
+  right: 8px;
+  top:8px;
+  font-size: 1rem;
+  font-weight: 300;
+  padding: 4px 8px 4px 8px;
+  border-radius: 25px;
+}
+
+.project h3{
+  font-weight: 900;
+  letter-spacing: -0.5px;
+}
+
+.project li{
+  line-height: 36px;
+  color: #4c4d57;
+}
+
+.technology{
+  background-color: #3e48e9;
+  background-image: linear-gradient(300deg, #3e48e9 0%, #1c2aaf 100%);
+  border-color: #3e48e9;
+  color: #fff;
+  right: 8px;
+  top:8px;
+  font-size: 0.8rem;
+  font-weight: 300;
+  padding: 4px 8px 4px 8px;
+  border-radius: 25px;
+  margin-right: 12px;
+  margin-top:12px;
+}
+
+.project h3{
+  margin-top:24px;
+}
+
+.link-box{
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.link-icon{
+    color: #4c4d57 !important;
+    font-size: 2rem;
+    transition: 0.3s all ease-in;
+    margin: 8px 12px 0px 12px;
+}
+.link-icon:hover{
+  color:#3e48e9 !important;
+}
+
+.project-back-nav{
+  width: 100%;
+  text-align: center;
+  margin-top:44px;
+}
+.btn .icon{
+  margin-right: 6px;
 }

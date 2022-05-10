@@ -3,6 +3,13 @@ import { BsChevronDoubleUp } from 'react-icons/bs'
 
 type Props = {}
 
+export const goToTop = () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+    });
+};
+
 const ScrollToTop = (props: Props) => {
     const [showTopBtn, setShowTopBtn] = useState(false);
 
@@ -16,14 +23,6 @@ const ScrollToTop = (props: Props) => {
             }
         });
     }, []);
-
-
-    const goToTop = () => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth',
-        });
-    };
 
     return (
         <>

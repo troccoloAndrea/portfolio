@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { BsChevronDoubleDown } from 'react-icons/bs'
 import avatar1 from '../img/avatar/avatar1.PNG'
 import avatar2 from '../img/avatar/avatar2.PNG'
@@ -15,6 +15,7 @@ import typescriptlogo from '../img/skills/typescript.svg';
 import Social from '../shared/Social'
 import ContactForm from './components/ContactForm'
 import HomePortfolio from './components/HomePortfolio'
+import { goToTop } from './components/ScrollToTop'
 import Skill from './components/Skill';
 
 type Props = {}

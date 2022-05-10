@@ -28,16 +28,16 @@ function Navbar({ }: Props) {
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav ms-auto">
                         <li className="nav-item">
-                            <a className={scroll ? "nav-link nl-d" : "nav-link nl-w"} aria-current="page" href="#home">Home</a>
+                            <a className={scroll ? "nav-link nl-d" : "nav-link nl-w"} aria-current="page" href="/#home">Home</a>
                         </li>
                         <li className="nav-item">
-                            <a className={scroll ? "nav-link nl-d" : "nav-link nl-w"} href="#skills">Skills</a>
+                            <a className={scroll ? "nav-link nl-d" : "nav-link nl-w"} href="/#skills">Skills</a>
                         </li>
                         <li className="nav-item">
-                            <a className={scroll ? "nav-link nl-d" : "nav-link nl-w"} href="#portfolio">Portfolio</a>
+                            <a className={scroll ? "nav-link nl-d" : "nav-link nl-w"} href="/#portfolio">Portfolio</a>
                         </li>
                         <li className="nav-item">
-                            <a className={scroll ? "nav-link nl-d" : "nav-link nl-w"} href='#contact'>Contact</a>
+                            <a className={scroll ? "nav-link nl-d" : "nav-link nl-w"} href='/#contact'>Contact</a>
                         </li>
                     </ul>
                 </div>

@@ -12,10 +12,10 @@ function Footer({}: Props) {
       <hr/>
       <div className='footer-menu'>
         <ul>
-          <li><a href="#home">Home</a></li>
-          <li><a href="#skills">skills</a></li>
-          <li><a href="#portfolio">portfolio</a></li>
-          <li><a href="#contact">contacts</a></li>
+          <li><a href="/#home">Home</a></li>
+          <li><a href="/#skills">skills</a></li>
+          <li><a href="/#portfolio">portfolio</a></li>
+          <li><a href="/#contact">contacts</a></li>
         </ul>
         <Social/>
       </div>
