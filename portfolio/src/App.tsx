@@ -1,17 +1,18 @@
 import React from 'react';
 import logo from './logo.svg';
-import './css/App.css';
 import Navbar from './shared/Navbar';
 import Footer from './shared/Footer';
+import Home from './pages/Home';
 
 function App() {
   return (
     <div className='app-wrapper'>
       <div className='app'>
         <Navbar />
-        <h1>ciao</h1>
+        <Home />
+        <Footer />
       </div>
-      <Footer />
+      
     </div>
   );
 }
