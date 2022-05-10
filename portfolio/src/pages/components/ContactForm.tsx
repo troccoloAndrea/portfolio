@@ -38,7 +38,7 @@ const ContactForm = () => {
 
     return (
         <>
-            <p>Mettiamoci in contatto! Inviami un messaggio con questa form!</p>
+            <p>Mettiamoci in contatto! Inviami un messaggio qui sotto!</p>
             <form onSubmit={handleSubmit(sendEmail)}>
                 <div className="form-group mb-4">
                     <input className={`form-control ${errors.email && 'is-invalid'}`} {...register("name", { required: true })} placeholder="name" name='name' />
