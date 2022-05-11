@@ -7,6 +7,7 @@ import { FaAppStoreIos, FaGithub } from 'react-icons/fa'
 import { IoLogoGooglePlaystore } from 'react-icons/io5'
 import { BsChevronDoubleLeft } from 'react-icons/bs'
 import ContactForm from './components/ContactForm'
+import Loading from '../shared/Loading'
 
 type Props = {}
 
@@ -22,9 +23,12 @@ const Portfolio = (props: Props) => {
 
 
     const GetProject = async (id: string) => {
-        await axios.get<Project>(`http://localhost:3004/projects/${id}`)
+        await axios.get<any>(`https://api.jsonbin.io/b/627b917838be29676101499c`, {
+            headers: { 'X-Master-Key': '$2b$10$vXMWhcKR9uVgiwf/7GD3lO/3kf5OsS9YsFvTkh23DFB5bUseQ6kjK' }
+        })
             .then(res => {
-                setProject(res.data)
+                let p = res.data.projects[id]
+                setProject(p)
             })
             .catch(err => alert(err))
     }
@@ -32,8 +36,9 @@ const Portfolio = (props: Props) => {
 
     return (
         <>
-            {project ?
-                <div className="container project">
+
+            <div className="container project">
+                {project ? <>
                     <div className='project-hero'>
                         <img src={require("../img/projetcs/" + project.img)} alt={project.title} className="img-fluid hero-image" />
                         <h1>{project.title}</h1>
@@ -70,14 +75,14 @@ const Portfolio = (props: Props) => {
                     <div className='project-back-nav'>
                         <Link to="/" className='btn btn-fill'><BsChevronDoubleLeft className='icon' /> Back to home</Link>
                     </div>
+                </>
+                    : <Loading />}
+
+            </div>
 
 
 
-                </div>
 
-
-
-                : <p>loading..</p>}
         </>
     )
 }

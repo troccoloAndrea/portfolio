@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import avatar4 from '../../img/avatar/avatar4.PNG'
 import axios from 'axios'
 import HomePortfolioSingle from './HomePortfolioSingle'
+import Loading from '../../shared/Loading'
 
 export interface Project {
     id: number,
@@ -27,9 +28,12 @@ const HomePortfolio = () => {
     }, [])
 
     const GetProjects = async () => {
-        await axios.get<Project[]>('http://localhost:3004/projects')
+        await axios.get<any>('https://api.jsonbin.io/b/627b917838be29676101499c', {
+            headers: { 'X-Master-Key' : '$2b$10$vXMWhcKR9uVgiwf/7GD3lO/3kf5OsS9YsFvTkh23DFB5bUseQ6kjK' }
+        })
             .then(res => {
-                setProjects(res.data)
+                console.log(res);
+                setProjects(res.data.projects)
                 console.log(projects)
             })
             .catch(err => alert(err))
@@ -43,7 +47,7 @@ const HomePortfolio = () => {
             <h3><img src={avatar4} height={80} />My Portfolio</h3>
             <p>Questi sono i progetti che ho realizzato a scuola, corsi di formazione e just for fun!</p>
             <div className='home-portfolio-box'>
-                {projects.length == 0 ? <p>Error: no project found!</p> : projects.map((project) => <HomePortfolioSingle project={project} />)}
+                {projects.length == 0 ? <Loading/> : projects.map((project) => <HomePortfolioSingle project={project} />)}
             </div>
         </section>
     )
