@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import '../css/Shared.css'      
 
+import {AiOutlineMenu} from 'react-icons/ai'
 import logo from '../img/avatar/avatarlogo.PNG'
 import ScrollToTop from '../pages/components/ScrollToTop';
 
@@ -23,9 +24,9 @@ function Navbar({ }: Props) {
             <div className="container">
                 <a href="#home" className={scroll ? "navbar-brand nb-d" : "navbar-brand nb-w"}>{'< '}<img src={logo} width={60}/> {scroll ? 'andreatroccolo />' : 'at />'}</a>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span className="navbar-toggler-icon"></span>
+                    <span className="navbar-toggler-icon"><AiOutlineMenu className={scroll ? "menu-d" : "menu-w"} /></span>
                 </button>
-                <div className="collapse navbar-collapse" id="navbarNav">
+                <div className={scroll ? "collapse navbar-collapse navbar-collapse-d" : "collapse navbar-collapse navbar-collapse-w"} id="navbarNav">
                     <ul className="navbar-nav ms-auto">
                         <li className="nav-item">
                             <a className={scroll ? "nav-link nl-d" : "nav-link nl-w"} aria-current="page" href="/#home">Home</a>

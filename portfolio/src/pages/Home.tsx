@@ -39,14 +39,18 @@ const Home = (props: Props) => {
             </div>
             <section id="skills" className='container'>
                 <div className="row">
-                    <div className="col-md-4 section-info">
-                        <div className="section-info-content">
-                            <h3>My Tech Stack</h3>
-                            <p>Le mie tecnologie preferite!</p>
-                            <img src={avatar2} className="avatar" id="avatar-2" />
+                    <div className="col-sm-12 col-md-4 col-lg-4">
+                        <div className="section-info">
+                            <div className="section-info-content">
+                                <h3>My Tech Stack</h3>
+                                <p>Le mie tecnologie preferite!</p>
+                                <img src={avatar2} className="img-fluid avatar" id="avatar-2" />
+                            </div>
                         </div>
+
+                        
                     </div>
-                    <div className="col-md-8">
+                    <div className="col-sm-12 col-md-8 col-lg-8">
                         <div className="row">
                             <Skill image={html} name="html" />
                             <Skill image={css} name="css" />
@@ -67,11 +71,14 @@ const Home = (props: Props) => {
 
             <section id="contact" className='container'>
                 <div className="row">
-                    <div className="col-md-4 section-info">
-                        <div className="section-info-content">
-                            <h3>Get in touch!</h3>
-                            <img src={avatar3} className="avatar" id="avatar-2" />
+                    <div className="col-md-4 ">
+                        <div className="section-info">
+                            <div className="section-info-content">
+                                <h3>Get in touch!</h3>
+                                <img src={avatar3} className="img-fluid avatar" id="avatar-2" />
+                            </div>
                         </div>
+                        
                     </div>
                     <div className="col-md-8">
                         <ContactForm />

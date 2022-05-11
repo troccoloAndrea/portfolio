@@ -141,7 +141,6 @@
 }
 
 .icon-style {
-    border: 2px solid #fff;
     font-size: 2rem;
     color: #3e48e9;
     cursor: pointer;
@@ -150,5 +149,39 @@
 
 .icon-style:hover {
     color: #4c4d57;
+}
+
+.navbar-collapse-w {
+    background-color: #fff;
+}
+
+.navbar-collapse-d {
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.96);
+}
+
+.navbar-toggler:focus{
+    border-color: #fff;
+}
+
+.menu-d{
+    color:#fff;
+}
+
+.menu-w{
+    color:#3e48e9;
+}
+
+@media (max-width: 480px) {
+    .navbar-brand {
+        font-size: 1.5rem;
+    }
+    #avatar-1 {
+        position: absolute;
+        top: 75%;
+        right: -11%;
+        transform: rotate(20deg);
+        width: 20%;
+    }
 }
 
