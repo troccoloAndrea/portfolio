@@ -332,9 +332,7 @@ border-radius: 8px;
   margin-top:36px;
 }
 
-.project .btn{
-  width: 80%;
-}
+
 
 .link-box{
   display: flex;
@@ -409,5 +407,16 @@ border-radius: 8px;
 
   #avatar-5{
     top:50%;
+  }
+  .project .btn{
+    width: 80%;
+  }
+
+  .project .category {
+    float: none;
+    margin-top: 12px;
+  }
+  .role{
+    margin-right: 12px;
   }
 }

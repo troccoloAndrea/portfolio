@@ -28,15 +28,15 @@ const HomePortfolio = () => {
     }, [])
 
     const GetProjects = async () => {
-        await axios.get<any>('https://api.jsonbin.io/b/627b917838be29676101499c', {
+        await axios.get<any>('https://api.jsonbin.io/b/627be5d7019db467969b1512', {
             headers: { 'X-Master-Key' : '$2b$10$vXMWhcKR9uVgiwf/7GD3lO/3kf5OsS9YsFvTkh23DFB5bUseQ6kjK' }
         })
             .then(res => {
                 console.log(res);
-                setProjects(res.data.projects)
+                setProjects(res.data)
                 console.log(projects)
             })
-            .catch(err => alert(err))
+            .catch(err => alert("Server Error (500) :("))
     }
 
 

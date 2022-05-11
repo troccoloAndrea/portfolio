@@ -1,6 +1,6 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { Link, useNavigate, useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { Project } from './components/HomePortfolio'
 import { AiFillEye } from 'react-icons/ai'
 import { FaAppStoreIos, FaGithub } from 'react-icons/fa'
@@ -8,6 +8,7 @@ import { IoLogoGooglePlaystore } from 'react-icons/io5'
 import { BsChevronDoubleLeft } from 'react-icons/bs'
 import ContactForm from './components/ContactForm'
 import Loading from '../shared/Loading'
+import { HashLink as Link } from 'react-router-hash-link';
 
 type Props = {}
 
@@ -18,19 +19,20 @@ const Portfolio = (props: Props) => {
     let navigate = useNavigate()
 
     useEffect(() => {
+        window.scrollTo(0,0);
         id ? GetProject(id) : alert("error");
     }, [])
 
 
     const GetProject = async (id: string) => {
-        await axios.get<any>(`https://api.jsonbin.io/b/627b917838be29676101499c`, {
+        await axios.get<any>(`https://api.jsonbin.io/b/627be5d7019db467969b1512`, {
             headers: { 'X-Master-Key': '$2b$10$vXMWhcKR9uVgiwf/7GD3lO/3kf5OsS9YsFvTkh23DFB5bUseQ6kjK' }
         })
             .then(res => {
-                let p = res.data.projects[id]
+                let p = res.data[id]
                 setProject(p)
             })
-            .catch(err => alert(err))
+            .catch(err => alert("Server Error (500) :("))
     }
 
 
@@ -42,7 +44,7 @@ const Portfolio = (props: Props) => {
                     <div className='project-hero'>
                         <img src={require("../img/projetcs/" + project.img)} alt={project.title} className="img-fluid hero-image" />
                         <h1>{project.title}</h1>
-                        <label>{project.role}</label>
+                        <label className='role'>{project.role}</label>
                         <label className='category'>{project.category}</label>
                         <br />
                         {project.tecnology.map(k => <label className='technology'>{k}</label>)}
@@ -73,7 +75,7 @@ const Portfolio = (props: Props) => {
                         {project.applestore != "" ? <a href={project.applestore} target="_blank" className="link-icon"><FaAppStoreIos /></a> : <></>}
                     </div>
                     <div className='project-back-nav'>
-                        <Link to="/" className='btn btn-fill'><BsChevronDoubleLeft className='icon' /> Back to home</Link>
+                        <Link to="/#portfolio" className='btn btn-fill'><BsChevronDoubleLeft className='icon' /> Back to home</Link>
                     </div>
                 </>
                     : <Loading />}
