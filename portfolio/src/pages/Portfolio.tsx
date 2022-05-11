@@ -23,7 +23,7 @@ const Portfolio = (props: Props) => {
 
 
     const GetProject = async (id: string) => {
-        await axios.get<any>(`https://api.jsonbin.io/b/627b917838be29676101499c/latest`, {
+        await axios.get<any>(`https://api.jsonbin.io/b/627b917838be29676101499c`, {
             headers: { 'X-Master-Key': '$2b$10$vXMWhcKR9uVgiwf/7GD3lO/3kf5OsS9YsFvTkh23DFB5bUseQ6kjK' }
         })
             .then(res => {
