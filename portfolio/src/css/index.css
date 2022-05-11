@@ -406,4 +406,8 @@ border-radius: 8px;
   section {
     padding: 60px 0px 60px 0px
   }
+
+  #avatar-5{
+    top:50%;
+  }
 }
