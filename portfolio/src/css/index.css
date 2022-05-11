@@ -332,6 +332,10 @@ border-radius: 8px;
   margin-top:36px;
 }
 
+.project .btn{
+  width: 80%;
+}
+
 .link-box{
   display: flex;
   justify-content: center;
@@ -397,5 +401,9 @@ border-radius: 8px;
 
   .hero .btn{
     margin: 0px 8px 0px 8px;
+  }
+
+  section {
+    padding: 60px 0px 60px 0px
   }
 }
