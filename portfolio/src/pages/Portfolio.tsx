@@ -1,12 +1,11 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
-import { Project } from './components/HomePortfolio'
+import { useParams } from 'react-router-dom'
+import { Project } from './components/portfolio/HomePortfolio'
 import { AiFillEye } from 'react-icons/ai'
 import { FaAppStoreIos, FaGithub } from 'react-icons/fa'
 import { IoLogoGooglePlaystore } from 'react-icons/io5'
 import { BsChevronDoubleLeft } from 'react-icons/bs'
-import ContactForm from './components/ContactForm'
 import Loading from '../shared/Loading'
 import { HashLink as Link } from 'react-router-hash-link';
 
@@ -16,7 +15,6 @@ const Portfolio = (props: Props) => {
 
     const [project, setProject] = useState<Project>()
     const { id } = useParams()
-    let navigate = useNavigate()
 
     useEffect(() => {
         window.scrollTo(0,0);
@@ -47,7 +45,7 @@ const Portfolio = (props: Props) => {
                         <label className='role'>{project.role}</label>
                         <label className='category'>{project.category}</label>
                         <br />
-                        {project.tecnology.map(k => <label className='technology'>{k}</label>)}
+                        {project.tecnology.map((v, i) => <label key={i} className='technology'>{v}</label>)}
                         <hr />
                     </div>
                     <p>{project.description}</p>
@@ -55,24 +53,24 @@ const Portfolio = (props: Props) => {
                         <div className="col-md-6">
                             <h3>What i've done</h3>
                             <ul>
-                                {project.activities.map(k => <li>{k}</li>)}
+                                {project.activities.map((v, i) => <li key={i}>{v}</li>)}
                             </ul>
                         </div>
                         <div className="col-md-6">
                             {project.partners.length > 0 ?
                                 <>
                                     <h3>Project partners</h3>
-                                    {project.partners.map(k => <li>{k}</li>)}
+                                    {project.partners.map((v, i) => <li key={i}>{v}</li>)}
                                 </>
                                 : <></>}
                         </div>
                     </div>
-                    {project.demo != "" && project.github != "" && project.playstore != "" && project.applestore != "" ? <h3 className='text-center'>Project links</h3> : <></>}
+                    {project.demo !== "" && project.github !== "" && project.playstore !== "" && project.applestore !== "" ? <h3 className='text-center'>Project links</h3> : <></>}
                     <div className='link-box'>
-                        {project.demo != "" ? <a href={project.demo} target="_blank" className="link-icon"><AiFillEye /></a> : <></>}
-                        {project.github != "" ? <a href={project.github} target="_blank" className="link-icon"><FaGithub /></a> : <></>}
-                        {project.playstore != "" ? <a href={project.playstore} target="_blank" className="link-icon"><IoLogoGooglePlaystore /></a> : <></>}
-                        {project.applestore != "" ? <a href={project.applestore} target="_blank" className="link-icon"><FaAppStoreIos /></a> : <></>}
+                        {project.demo !== "" ? <a href={project.demo} target="_blank" rel='noreferrer' className="link-icon"><AiFillEye /></a> : <></>}
+                        {project.github !== "" ? <a href={project.github} target="_blank" rel='noreferrer' className="link-icon"><FaGithub /></a> : <></>}
+                        {project.playstore !== "" ? <a href={project.playstore} target="_blank" rel='noreferrer' className="link-icon"><IoLogoGooglePlaystore /></a> : <></>}
+                        {project.applestore !== "" ? <a href={project.applestore} target="_blank" rel='noreferrer' className="link-icon"><FaAppStoreIos /></a> : <></>}
                     </div>
                     <div className='project-back-nav'>
                         <Link to="/#portfolio" className='btn btn-fill'><BsChevronDoubleLeft className='icon' /> Back to home</Link>

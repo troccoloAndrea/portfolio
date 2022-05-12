@@ -169,18 +169,22 @@
     color: #3e48e9;
 }
 
-.my-spinner{
+.my-spinner {
     margin-bottom: 20px;
-    color:#3e48e9;
+    color: #3e48e9;
     display: block;
     margin-left: auto;
     margin-right: auto;
-  
-  }
 
-  .project .my-spinner{
-      margin-top:20%;
-  }
+}
+
+.project .my-spinner {
+    margin-top: 20%;
+}
+
+.social-r{
+    margin-right: 0px !important;
+}
 
 @media (max-width: 480px) {
     .navbar-brand {
