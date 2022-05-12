@@ -10,7 +10,7 @@ const HomePortfolioSingle = ({ project }: Props) => {
     const img = require("../../../img/projetcs/" + project.img);
 
     return (
-        <Link to={`/portfolio/${project.id}`}>
+        <Link to={`/portfolio/${project.SEO.slug}`}>
             <div className='portfolio-single' style={{ backgroundImage: `url(${img})` }}>
                 <div className="inner">
                     <p className='title'>{project.title}</p>

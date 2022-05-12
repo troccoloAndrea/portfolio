@@ -1,5 +1,4 @@
-import axios from 'axios'
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { Project } from './components/portfolio/HomePortfolio'
 import { AiFillEye } from 'react-icons/ai'
@@ -8,31 +7,21 @@ import { IoLogoGooglePlaystore } from 'react-icons/io5'
 import { BsChevronDoubleLeft } from 'react-icons/bs'
 import Loading from '../shared/Loading'
 import { HashLink as Link } from 'react-router-hash-link';
+import { AppContext } from '../ContextWrapper'
 
 type Props = {}
 
 const Portfolio = (props: Props) => {
 
+    const projects = useContext<Project[]>(AppContext);
     const [project, setProject] = useState<Project>()
     const { id } = useParams()
 
     useEffect(() => {
-        window.scrollTo(0,0);
-        id ? GetProject(id) : alert("error");
+        window.scrollTo(0, 0);
+        console.log(id)
+        id ? setProject(projects.find(k => k.SEO.slug === id)) : alert("Error: no project found :(");
     }, [])
-
-
-    const GetProject = async (id: string) => {
-        await axios.get<any>(`https://api.jsonbin.io/b/627be5d7019db467969b1512`, {
-            headers: { 'X-Master-Key': '$2b$10$vXMWhcKR9uVgiwf/7GD3lO/3kf5OsS9YsFvTkh23DFB5bUseQ6kjK' }
-        })
-            .then(res => {
-                let p = res.data[id]
-                setProject(p)
-            })
-            .catch(err => alert("Server Error (500) :("))
-    }
-
 
     return (
         <>
@@ -60,7 +49,9 @@ const Portfolio = (props: Props) => {
                             {project.partners.length > 0 ?
                                 <>
                                     <h3>Project partners</h3>
-                                    {project.partners.map((v, i) => <li key={i}>{v}</li>)}
+                                    <ul>
+                                        {project.partners.map((v, i) => <li key={i}>{v}</li>)}
+                                    </ul>
                                 </>
                                 : <></>}
                         </div>
