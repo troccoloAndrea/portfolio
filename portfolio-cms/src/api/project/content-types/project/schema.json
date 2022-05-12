@@ -1,0 +1,74 @@
+{
+  "kind": "collectionType",
+  "collectionName": "projects",
+  "info": {
+    "singularName": "project",
+    "pluralName": "projects",
+    "displayName": "Projects",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "category": {
+      "type": "string"
+    },
+    "technology": {
+      "displayName": "technology",
+      "type": "component",
+      "repeatable": true,
+      "component": "array.technology"
+    },
+    "activities": {
+      "displayName": "activities",
+      "type": "component",
+      "repeatable": true,
+      "component": "array.activities"
+    },
+    "role": {
+      "type": "string"
+    },
+    "partners": {
+      "displayName": "partners",
+      "type": "component",
+      "repeatable": true,
+      "component": "array.partners"
+    },
+    "demo": {
+      "type": "string"
+    },
+    "github": {
+      "type": "string"
+    },
+    "applestore": {
+      "type": "string"
+    },
+    "playstore": {
+      "type": "string"
+    },
+    "SEO": {
+      "type": "component",
+      "repeatable": true,
+      "component": "seo.seo"
+    }
+  }
+}
