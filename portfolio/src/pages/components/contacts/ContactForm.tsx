@@ -3,7 +3,7 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { FaCheck, FaEnvelope } from 'react-icons/fa';
 import { IoIosSend } from 'react-icons/io'
 import { IoCloseOutline } from 'react-icons/io5'
-import Social from '../../shared/Social';
+import Social from '../../../shared/Social';
 import emailjs from '@emailjs/browser';
 
 type Inputs = {

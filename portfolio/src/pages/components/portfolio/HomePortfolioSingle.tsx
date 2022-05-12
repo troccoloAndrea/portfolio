@@ -1,6 +1,5 @@
 import React from 'react'
 import { Project } from './HomePortfolio'
-import bg from '../../img/index.css.png'
 import {Link} from 'react-router-dom'
 
 type Props = {
@@ -8,7 +7,7 @@ type Props = {
 }
 
 const HomePortfolioSingle = ({ project }: Props) => {
-    const img = require("../../img/projetcs/" + project.img);
+    const img = require("../../../img/projetcs/" + project.img);
 
     return (
         <Link to={`/portfolio/${project.id}`}>

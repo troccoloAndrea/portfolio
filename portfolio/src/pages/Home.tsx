@@ -1,22 +1,20 @@
-import React, { useEffect } from 'react'
+import React from 'react'
+
 import { BsChevronDoubleDown } from 'react-icons/bs'
+
 import avatar1 from '../img/avatar/avatar1.PNG'
-import avatar2 from '../img/avatar/avatar2.PNG'
+
 import avatar3 from '../img/avatar/avatar3.PNG'
 
-import boostraplogo from '../img/skills/bootstrap.svg';
-import charp from '../img/skills/csharp.svg';
-import css from '../img/skills/css.svg';
-import figma from '../img/skills/figma.svg';
-import html from '../img/skills/html.svg';
-import js from '../img/skills/js.svg';
-import reactlogo from '../img/skills/react.svg';
-import typescriptlogo from '../img/skills/typescript.svg';
+
+
 import Social from '../shared/Social'
-import ContactForm from './components/ContactForm'
-import HomePortfolio from './components/HomePortfolio'
-import { goToTop } from './components/ScrollToTop'
-import Skill from './components/Skill';
+import ContactForm from './components/contacts/ContactForm'
+import Contacts from './components/contacts/Contacts'
+import HomePortfolio from './components/portfolio/HomePortfolio'
+import SectionInfo from './components/section/SectionInfo'
+import Skills from './components/skills/Skills'
+import Skill from './components/skills/SkillSingle';
 
 type Props = {}
 
@@ -33,62 +31,13 @@ const Home = (props: Props) => {
                     </p>
                     <a href='#portfolio' className='btn btn-fill'>Vedi Portfolio</a>
                     <a href='#contact' className='btn btn-empty'>Contatti</a>
-                    <img src={avatar1} className="avatar" id="avatar-1" />
+                    <img src={avatar1} alt="andrea" className="avatar" id="avatar-1" />
                 </div>
                 <a href='#skills'><BsChevronDoubleDown className='arrow-down' /></a>
             </div>
-            <section id="skills" className='container'>
-                <div className="row">
-                    <div className="col-sm-12 col-md-4 col-lg-4">
-                        <div className="section-info">
-                            <div className="section-info-content">
-                                <h3>My Tech Stack</h3>
-                                <p>Le mie tecnologie preferite!</p>
-                                <img src={avatar2} className="img-fluid avatar" id="avatar-2" />
-                            </div>
-                        </div>
-
-                        
-                    </div>
-                    <div className="col-sm-12 col-md-8 col-lg-8">
-                        <div className="row">
-                            <Skill image={html} name="html" />
-                            <Skill image={css} name="css" />
-                            <Skill image={boostraplogo} name="Bootstrap" />
-                            <Skill image={charp} name="c#" />
-                        </div>
-                        <div className="row">
-                            <Skill image={js} name="javascript " />
-                            <Skill image={typescriptlogo} name="typescript" />
-                            <Skill image={reactlogo} name="react" />
-                            <Skill image={figma} name="figma" />
-                        </div>
-                    </div>
-                </div>
-            </section>
-            
+            <Skills />
             <HomePortfolio />
-
-            <section id="contact" className='container'>
-                <div className="row">
-                    <div className="col-md-4 ">
-                        <div className="section-info">
-                            <div className="section-info-content">
-                                <h3>Get in touch!</h3>
-                                <img src={avatar3} className="img-fluid avatar" id="avatar-2" />
-                            </div>
-                        </div>
-                        
-                    </div>
-                    <div className="col-md-8">
-                        <ContactForm />
-                    </div>
-                </div>
-            </section>
-
-
-
-
+            <Contacts />
         </main>
     )
 }
