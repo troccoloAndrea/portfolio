@@ -1,8 +1,15 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import avatar4 from '../../../img/avatar/avatar4.PNG'
 import axios from 'axios'
 import HomePortfolioSingle from './HomePortfolioSingle'
 import Loading from '../../../shared/Loading'
+import ContextWrapper, { AppContext } from '../../../ContextWrapper'
+
+export interface SEO {
+    slug:string,
+    metatitle: string,
+    metadescription:string
+}
 
 export interface Project {
     id: number,
@@ -17,29 +24,13 @@ export interface Project {
     github: string,
     demo: string,
     applestore: string,
-    playstore: string
+    playstore: string,
+    SEO : SEO
 }
 
 const HomePortfolio = () => {
-    const [projects, setProjects] = useState<Project[]>([])
-
-    const GetProjects = async () => {
-        await axios.get<any>('https://api.jsonbin.io/b/627be5d7019db467969b1512', {
-            headers: { 'X-Master-Key' : '$2b$10$vXMWhcKR9uVgiwf/7GD3lO/3kf5OsS9YsFvTkh23DFB5bUseQ6kjK' }
-        })
-            .then(res => {
-                console.log(res);
-                setProjects(res.data)
-                console.log(projects)
-            })
-            .catch(err => alert("Server Error (500) :("))
-    }
-
-    useEffect(() => {
-        GetProjects();
-    },[])
-
-
+    
+    const projects  = useContext<Project[]>(AppContext);
 
     return (
         <section id="portfolio" className='container portfolio'>

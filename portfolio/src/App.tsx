@@ -7,25 +7,28 @@ import Navbar from './shared/Navbar';
 import Footer from './shared/Footer';
 import Home from './pages/Home';
 import Portfolio from './pages/Portfolio';
+import ContextWrapper from './ContextWrapper';
 
 
 
 function App() {
   return (
-    <Router>
-    <div className='app-wrapper'>
-      <div className='app'>
-        <Navbar />
-        <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/portfolio/:id" element={<Portfolio/>} />
-          </Routes>  
+    <ContextWrapper>
+      <Router>
+      <div className='app-wrapper'>
+        <div className='app'>
+          <Navbar />
+          <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/portfolio/:id" element={<Portfolio/>} />
+            </Routes>  
 
-        <Footer />
+          <Footer />
+        </div>
+        
       </div>
-      
-    </div>
-    </Router>
+      </Router>
+    </ContextWrapper>
   );
 }
 
