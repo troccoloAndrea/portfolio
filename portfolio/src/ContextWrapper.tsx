@@ -14,8 +14,9 @@ const ContextWrapper:React.FC<Props> = ({ children }) => {
     const [projects, setProjects] = useState<Project[]>([])
 
     const GetProjects = async () => {
-        await axios.get<any>('https://api.jsonbin.io/b/627cf18c38be296761028814', {
-            headers: { 'X-Master-Key' : '$2b$10$vXMWhcKR9uVgiwf/7GD3lO/3kf5OsS9YsFvTkh23DFB5bUseQ6kjK' }
+        console.log(process.env.REACT_APP_API_LINK);
+        await axios.get<any>(`${process.env.REACT_APP_API_LINK}`, {
+            headers: { 'X-Master-Key' : `${process.env.REACT_APP_MASTER_KEY}` }
         })
             .then(res => {
                 setProjects(res.data)
