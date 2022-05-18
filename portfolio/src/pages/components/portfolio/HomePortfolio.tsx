@@ -1,36 +1,27 @@
 import React, { useContext, useEffect, useState } from 'react'
 import avatar4 from '../../../img/avatar/avatar4.PNG'
-import axios from 'axios'
 import HomePortfolioSingle from './HomePortfolioSingle'
 import Loading from '../../../shared/Loading'
-import ContextWrapper, { AppContext } from '../../../ContextWrapper'
+import { Project, StrapiProjectRequest } from '../../../models/Project'
+import axios from 'axios'
 
-export interface SEO {
-    slug:string,
-    metatitle: string,
-    metadescription:string
-}
-
-export interface Project {
-    id: number,
-    title: string,
-    img:string,
-    description: string,
-    category: string,
-    tecnology: string[],
-    activities: string[],
-    role: string,
-    partners: string[],
-    github: string,
-    demo: string,
-    applestore: string,
-    playstore: string,
-    SEO : SEO
-}
 
 const HomePortfolio = () => {
     
-    const projects  = useContext<Project[]>(AppContext);
+    const [projects, setProjects] = useState<Project[]>([])
+
+    const GetProjects = async () => {
+        await axios.get<StrapiProjectRequest>(`http://localhost:1337/api/projects?populate=*`)
+            .then(res => {
+                setProjects(res.data.data)
+            })
+            .catch(err => alert("Server Error (500) :("))
+    }
+
+    useEffect(() => {
+      GetProjects();
+    }, [])
+    
 
     return (
         <section id="portfolio" className='container portfolio'>

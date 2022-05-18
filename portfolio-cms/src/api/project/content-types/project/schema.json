@@ -32,12 +32,6 @@
     "category": {
       "type": "string"
     },
-    "technology": {
-      "displayName": "technology",
-      "type": "component",
-      "repeatable": true,
-      "component": "array.technology"
-    },
     "activities": {
       "displayName": "activities",
       "type": "component",
@@ -69,6 +63,11 @@
       "type": "component",
       "repeatable": true,
       "component": "seo.seo"
+    },
+    "skills": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::skill.skill"
     }
   }
 }
