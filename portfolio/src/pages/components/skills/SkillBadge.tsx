@@ -30,7 +30,7 @@ const SkillBadge = ({ image, name }: Props) => {
       {skill ?
         <div>
           <Tooltip title={name} arrow  TransitionComponent={Zoom} >
-            <img src={process.env.REACT_APP_STRAPI_DOMAIN + skill.attributes.image.data.attributes.url} className="skill-badge img-fluid" alt={name} />
+            <img src={skill.attributes.image.data.attributes.url} className="skill-badge img-fluid" alt={name} />
           </Tooltip>
         </div>
         : <></>}
