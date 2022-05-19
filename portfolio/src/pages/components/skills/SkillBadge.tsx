@@ -13,7 +13,7 @@ const SkillBadge = ({ image, name }: Props) => {
   const [skill, setSkill] = useState<Skill>();
 
   const GetSkill = async () => {
-    await axios.get<StrapiSkillSingleRequest>(`http://localhost:1337/api/skills/${image}?populate=*`)
+    await axios.get<StrapiSkillSingleRequest>(`${process.env.REACT_APP_STRAPI_DOMAIN}` + `${process.env.REACT_APP_API_SKILLS}` + `/${image}?populate=*`)
       .then(res => {
         setSkill(res.data.data)
       })
@@ -30,7 +30,7 @@ const SkillBadge = ({ image, name }: Props) => {
       {skill ?
         <div>
           <Tooltip title={name} arrow  TransitionComponent={Zoom} >
-            <img src={require("../../../../../portfolio-cms/public" + skill.attributes.image.data.attributes.url)} className="skill-badge img-fluid" alt={name} />
+            <img src={process.env.REACT_APP_STRAPI_DOMAIN + skill.attributes.image.data.attributes.url} className="skill-badge img-fluid" alt={name} />
           </Tooltip>
         </div>
         : <></>}

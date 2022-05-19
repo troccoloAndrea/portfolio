@@ -7,7 +7,7 @@ type Props = {
 }
 
 const HomePortfolioSingle = ({ project }: Props) => {
-    const img = require("../../../../../portfolio-cms/public" + project.attributes.image.data.attributes.formats.large.url);
+    const img = process.env.REACT_APP_STRAPI_DOMAIN + project.attributes.image.data.attributes.formats.large.url;
 
     return (
         <Link to={`/portfolio/${project.id}`}>

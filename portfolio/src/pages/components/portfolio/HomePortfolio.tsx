@@ -11,7 +11,7 @@ const HomePortfolio = () => {
     const [projects, setProjects] = useState<Project[]>([])
 
     const GetProjects = async () => {
-        await axios.get<StrapiProjectRequest>(`http://localhost:1337/api/projects?populate=*`)
+        await axios.get<StrapiProjectRequest>(`${process.env.REACT_APP_STRAPI_DOMAIN}` + `${process.env.REACT_APP_API_PROJECT}` + `?populate=*&sort=id`)
             .then(res => {
                 setProjects(res.data.data)
             })

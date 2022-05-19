@@ -25,7 +25,7 @@ const Portfolio: React.FC = (props: Props) => {
     }, [])
 
     const GetProject = async () => {
-        id ? await axios.get<StrapiSingleProjectRequest>(`http://localhost:1337/api/projects/${id}?populate=*`)
+        id ? await axios.get<StrapiSingleProjectRequest>(`${process.env.REACT_APP_STRAPI_DOMAIN}` + `${process.env.REACT_APP_API_PROJECT}` + `/${id}?populate=*`)
             .then(res => {
                 setProject(res.data.data)
             })
@@ -42,7 +42,7 @@ const Portfolio: React.FC = (props: Props) => {
                 {project ?
                     <>
                         <div className='project-hero'>
-                            <img src={require("../../../portfolio-cms/public" + project.attributes.image.data.attributes.url)} alt={project.attributes.title} className="img-fluid hero-image" />
+                            <img src={process.env.REACT_APP_STRAPI_DOMAIN + project.attributes.image.data.attributes.url} alt={project.attributes.title} className="img-fluid hero-image" />
                             <h1>{project.attributes.title}</h1>
                             <label className='role'>{project.attributes.role}</label>
                             <label className='category'>{project.attributes.category}</label>
