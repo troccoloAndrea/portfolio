@@ -4,17 +4,9 @@ import { BsChevronDoubleDown } from 'react-icons/bs'
 
 import avatar1 from '../img/avatar/avatar1.PNG'
 
-import avatar3 from '../img/avatar/avatar3.PNG'
-
-
-
-import Social from '../shared/Social'
-import ContactForm from './components/contacts/ContactForm'
 import Contacts from './components/contacts/Contacts'
 import HomePortfolio from './components/portfolio/HomePortfolio'
-import SectionInfo from './components/section/SectionInfo'
 import Skills from './components/skills/Skills'
-import Skill from './components/skills/SkillSingle';
 
 type Props = {}
 

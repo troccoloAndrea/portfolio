@@ -1,20 +1,31 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import SectionInfo from '../section/SectionInfo'
-import Skill from './SkillSingle'
+import SkillSingle from './SkillSingle'
 
-import boostraplogo from '../../../img/skills/bootstrap.svg';
-import charp from '../../../img/skills/csharp.svg';
-import css from '../../../img/skills/css.svg';
-import figma from '../../../img/skills/figma.svg';
-import html from '../../../img/skills/html.svg';
-import js from '../../../img/skills/js.svg';
-import reactlogo from '../../../img/skills/react.svg';
-import typescriptlogo from '../../../img/skills/typescript.svg';
+
 import avatar2 from '../../../img/avatar/avatar2.PNG'
+import axios from 'axios';
+import {Skill, StrapiSkillRequest} from '../../../models/Project';
+import Loading from '../../../shared/Loading';
 
 type Props = {}
 
-const Skills = (props: Props) => {
+const Skills:React.FC = (props: Props) => {
+
+    const [skills, setSkills] = useState<Skill[]>([]);
+
+    const GetSkills = async () => {
+        await axios.get<StrapiSkillRequest>(`${process.env.REACT_APP_STRAPI_DOMAIN}` + `${process.env.REACT_APP_API_SKILLS}` + `?populate=*`)
+            .then(res => {
+                setSkills(res.data.data)
+            })
+            .catch(err => alert("Server Error (500) :("))
+    }
+
+    useEffect(() => {
+        GetSkills();
+    },[])
+
     return (
         <section id="skills" className='container'>
             <div className="row">
@@ -25,16 +36,7 @@ const Skills = (props: Props) => {
                 </div>
                 <div className="col-sm-12 col-md-8 col-lg-8">
                     <div className="row">
-                        <Skill image={html} name="html" />
-                        <Skill image={css} name="css" />
-                        <Skill image={boostraplogo} name="Bootstrap" />
-                        <Skill image={charp} name="c#" />
-                    </div>
-                    <div className="row">
-                        <Skill image={js} name="javascript " />
-                        <Skill image={typescriptlogo} name="typescript" />
-                        <Skill image={reactlogo} name="react" />
-                        <Skill image={figma} name="figma" />
+                        {skills ? skills.filter(s => s.attributes.homepage).map((s:Skill) => <SkillSingle key={s.attributes.name} name={s.attributes.name} image={s.attributes.image.data.attributes.url} />)  : <Loading/>}
                     </div>
                 </div>
             </div>
