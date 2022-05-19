@@ -15,7 +15,7 @@ const Skills:React.FC = (props: Props) => {
     const [skills, setSkills] = useState<Skill[]>([]);
 
     const GetSkills = async () => {
-        await axios.get<StrapiSkillRequest>(`${process.env.REACT_APP_STRAPI_DOMAIN}` + `${process.env.REACT_APP_API_SKILLS}` + `?populate=*`)
+        await axios.get<StrapiSkillRequest>(`${process.env.REACT_APP_STRAPI_DOMAIN}` + `${process.env.REACT_APP_API_SKILLS}` + `?populate=*&sort=id`)
             .then(res => {
                 setSkills(res.data.data)
             })

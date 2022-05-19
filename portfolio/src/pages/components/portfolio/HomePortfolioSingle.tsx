@@ -7,7 +7,7 @@ type Props = {
 }
 
 const HomePortfolioSingle = ({ project }: Props) => {
-    const img = process.env.REACT_APP_STRAPI_DOMAIN + project.attributes.image.data.attributes.formats.large.url;
+    const img = project.attributes.image.data.attributes.formats.large.url;
 
     return (
         <Link to={`/portfolio/${project.id}`}>

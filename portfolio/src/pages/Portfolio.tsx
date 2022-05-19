@@ -42,7 +42,7 @@ const Portfolio: React.FC = (props: Props) => {
                 {project ?
                     <>
                         <div className='project-hero'>
-                            <img src={process.env.REACT_APP_STRAPI_DOMAIN + project.attributes.image.data.attributes.url} alt={project.attributes.title} className="img-fluid hero-image" />
+                            <img src={project.attributes.image.data.attributes.url} alt={project.attributes.title} className="img-fluid hero-image" />
                             <h1>{project.attributes.title}</h1>
                             <label className='role'>{project.attributes.role}</label>
                             <label className='category'>{project.attributes.category}</label>
