@@ -425,7 +425,7 @@ section h3 {
   transform: translate(-50%, -50%);
 }
 
-.not-found-content h1{
+.page-loader-content h1{
   font-weight: 900;
   letter-spacing: -1px;
 }
