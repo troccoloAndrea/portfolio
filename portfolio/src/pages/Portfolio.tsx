@@ -100,7 +100,7 @@ const Portfolio: React.FC = (props: Props) => {
                     </div>
                 </>
             </div>
-            : <PageLoader />}
+            : <Loading />}
         </>
     )
 }
