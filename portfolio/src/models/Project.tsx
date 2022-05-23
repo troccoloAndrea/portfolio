@@ -26,7 +26,8 @@ export interface SkillAttributes{
     homepage: boolean,
     createdAt:string ,
     updatedAt:string, 
-    publishedAt: string
+    publishedAt: string,
+    svg:string
 }
 
 export interface Skill{

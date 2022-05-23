@@ -1,8 +1,10 @@
-import React from 'react'
+import { render } from '@testing-library/react'
+import React, { useEffect, useState } from 'react'
 
 import { BsChevronDoubleDown } from 'react-icons/bs'
 
 import avatar1 from '../img/avatar/avatar1.PNG'
+import PageLoader from '../shared/PageLoader'
 
 import Contacts from './components/contacts/Contacts'
 import HomePortfolio from './components/portfolio/HomePortfolio'
@@ -11,8 +13,22 @@ import Skills from './components/skills/Skills'
 type Props = {}
 
 const Home = (props: Props) => {
+
+    const [isLoaded, setIsLoaded] = useState(false)
+
+    const renderPage = () => {
+        setIsLoaded(true);
+        console.log("culo")
+    }
+
+
+    
+
+    
+
     return (
         <main>
+            {isLoaded ? <></> : <PageLoader/>} 
             <div id="home" className="hero">
                 <div className="hero-content">
                     <h1>Front-end developer</h1>
@@ -28,9 +44,10 @@ const Home = (props: Props) => {
                 <a href='#skills'><BsChevronDoubleDown className='arrow-down' /></a>
             </div>
             <Skills />
-            <HomePortfolio />
+            <HomePortfolio renderPage={renderPage} />
             <Contacts />
         </main>
+        
     )
 }
 

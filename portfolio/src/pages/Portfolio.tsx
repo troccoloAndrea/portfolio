@@ -10,6 +10,7 @@ import { Project, Skill, StrapiSingleProjectRequest } from '../models/Project'
 import SkillBadge from './components/skills/SkillBadge'
 import axios from 'axios'
 import { Tooltip, Zoom } from '@mui/material'
+import PageLoader from '../shared/PageLoader'
 
 type Props = {}
 
@@ -99,7 +100,7 @@ const Portfolio: React.FC = (props: Props) => {
                             <Link to="/#portfolio" className='btn btn-fill'><BsChevronDoubleLeft className='icon' /> Back to home</Link>
                         </div>
                     </>
-                    : <Loading />}
+                    : <Loading/>}
 
             </div>
 
