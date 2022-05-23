@@ -24,13 +24,20 @@ const SkillBadge = ({ image, name }: Props) => {
     GetSkill();
   }, [])
 
+  const GetSkillSvg  = (img:string): string  => {
+    let blob = new Blob([img], {type: 'image/svg+xml'})
+    let url = URL.createObjectURL(blob)
+    return url
+  }
+
 
   return (
+
     <>
       {skill ?
         <div>
           <Tooltip title={name} arrow  TransitionComponent={Zoom} >
-            <img src={skill.attributes.image.data.attributes.url} className="skill-badge img-fluid" alt={name} />
+            <img src={GetSkillSvg(skill.attributes.svg)} className="skill-badge img-fluid" alt={name} />
           </Tooltip>
         </div>
         : <></>}

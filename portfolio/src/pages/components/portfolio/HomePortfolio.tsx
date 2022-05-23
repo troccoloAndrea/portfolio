@@ -5,8 +5,12 @@ import Loading from '../../../shared/Loading'
 import { Project, StrapiProjectRequest } from '../../../models/Project'
 import axios from 'axios'
 
+type Props = {
+    renderPage: () => void
+}
 
-const HomePortfolio = () => {
+
+const HomePortfolio = (props: Props) => {
     
     const [projects, setProjects] = useState<Project[]>([])
 
@@ -14,6 +18,7 @@ const HomePortfolio = () => {
         await axios.get<StrapiProjectRequest>(`${process.env.REACT_APP_STRAPI_DOMAIN}` + `${process.env.REACT_APP_API_PROJECT}` + `?populate=*&sort=id`)
             .then(res => {
                 setProjects(res.data.data)
+                props.renderPage();
             })
             .catch(err => alert("Server Error (500) :("))
     }

@@ -36,7 +36,7 @@ const Skills:React.FC = (props: Props) => {
                 </div>
                 <div className="col-sm-12 col-md-8 col-lg-8">
                     <div className="row">
-                        {skills ? skills.filter(s => s.attributes.homepage).map((s:Skill) => <SkillSingle key={s.attributes.name} name={s.attributes.name} image={s.attributes.image.data.attributes.url} />)  : <Loading/>}
+                        {skills ? skills.filter(s => s.attributes.homepage).map((s:Skill) => <SkillSingle key={s.attributes.name} name={s.attributes.name} image={s.attributes.svg} />)  : <Loading/>}
                     </div>
                 </div>
             </div>

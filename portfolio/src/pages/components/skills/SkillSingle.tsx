@@ -6,10 +6,14 @@ type Props = {
 }
 
 const Skill = (props: Props) => {
+
+  let blob = new Blob([props.image], {type: 'image/svg+xml'})
+  let url = URL.createObjectURL(blob)
+
   return (
     
     <div className='col-lg-3 col-md-3 col-sm-6 col-6 text-center'>
-        <img src={props.image} alt={props.name} className="img-fluid skills-logo"/>
+        <object type="image/svg+xml" data={url} className="img-fluid skills-logo"/>
         <br/>
         <label>{props.name}</label>
     </div>
