@@ -407,11 +407,11 @@ section h3 {
 }
 
 .page-loader{
-  width: 100%;
+  width: 100vw;
   height: 100vh;
   overflow-y: hidden;
   overflow-x: hidden;
-  z-index: 1031;
+  z-index: 2031;
   position: relative;
   background-color: #fff;
 }
@@ -428,6 +428,10 @@ section h3 {
 .page-loader-content h1{
   font-weight: 900;
   letter-spacing: -1px;
+}
+
+.app-wrapper{
+  overflow-x: hidden;
 }
 
 @media (max-width: 1200px) {
