@@ -27,7 +27,7 @@ const Home = (props: Props) => {
     
 
     return (
-        <main>s
+        <main>
             {isLoaded ? <></> : <PageLoader/>} 
             <div id="home" className="hero">
                 <div className="hero-content">
