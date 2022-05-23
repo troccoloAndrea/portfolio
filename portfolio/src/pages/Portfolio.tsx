@@ -100,7 +100,7 @@ const Portfolio: React.FC = (props: Props) => {
                             <Link to="/#portfolio" className='btn btn-fill'><BsChevronDoubleLeft className='icon' /> Back to home</Link>
                         </div>
                     </>
-                    : <Loading/>}
+                    : <PageLoader/>}
 
             </div>
 
