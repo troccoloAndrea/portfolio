@@ -412,7 +412,7 @@ section h3 {
   overflow-y: hidden;
   overflow-x: hidden;
   z-index: 2031;
-  position: relative;
+  position: fixed;
   background-color: #fff;
 }
 
